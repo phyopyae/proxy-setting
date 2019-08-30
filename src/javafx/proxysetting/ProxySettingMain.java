@@ -33,6 +33,16 @@ public class ProxySettingMain extends Application {
 	 * Default Date Format
 	 */
 	private static final String DATE_FORMAT = "dd-MM-yyyy";
+	
+	/**
+	 * Fixed Proxy Address
+	 */
+	private static final String PROXY_ADDRESS = "192.168.49.1";
+	
+	/**
+	 * Fixed Proxy Port
+	 */
+	private static final String PROXY_PORT = "1111";
 
 	static Label loading = new Label();
 
@@ -94,8 +104,8 @@ public class ProxySettingMain extends Application {
 	public static void updateProxySettingForWindows(Button button) {
 		Map<String, Object> windowsCmd = CommandUtility.COMMANDS_FOR_WINDOWS;
 		if (button.getText().equalsIgnoreCase("Connect")) {
-			String proxyAddress = "192.168.49.1";
-			String proxyPort = "1111";
+			String proxyAddress = PROXY_ADDRESS;
+			String proxyPort = PROXY_PORT;
 
 			String enableCmd = windowsCmd.get("EnableProxy").toString();
 			int enableResult = changeSetting(enableCmd);
@@ -159,8 +169,8 @@ public class ProxySettingMain extends Application {
 		Map<String, Object> macCmd = CommandUtility.COMMANDS_FOR_MAC;
 		if (button.getText().equalsIgnoreCase("Connect")) {
 			button.setText("Disconnect");
-			String proxyAddress = "192.168.49.1";
-			String proxyPort = "1111";
+			String proxyAddress = PROXY_ADDRESS;
+			String proxyPort = PROXY_PORT;
 
 			String socksEnableCmd = macCmd.get("EnableSocksProxy").toString();
 			changeSettingMac(socksEnableCmd);
@@ -194,8 +204,8 @@ public class ProxySettingMain extends Application {
 		String dateStr = DateUtility.dateToString(date, DATE_FORMAT);
 
 		if (button.getText().equalsIgnoreCase("Connect")) {
-			String proxyAddress = "192.168.49.1";
-			String proxyPort = "1111";
+			String proxyAddress = PROXY_ADDRESS;
+			String proxyPort = PROXY_PORT;
 
 			String updateProxyModeCmd = linuxCmd.get("UpdateProxyModeManual").toString();
 			changeSettingLinux(updateProxyModeCmd, dateStr);
